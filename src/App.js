@@ -2,6 +2,14 @@ import React from 'react';
 import './App.css';
 import Axios from 'axios';
 
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+const Letter = (props) => (
+	<div>
+  	<button>{props.searchLetter}</button>
+	</div>
+);
+
 class Cocktails extends React.Component {
 	state = {
     cocktails: [],
@@ -26,10 +34,19 @@ class Cocktails extends React.Component {
 }
 
 class App extends React.Component {
+  state = {
+    firstLetter: 'a',
+  };
+
+  changeFirstLetter = (newLetter) => {
+  	this.setState({ firstLetter: newLetter });
+  };
+
   render() {
   	return (
     	<div>
-    	  <Cocktails firstLetter='a'/>
+        {alphabet.map(letter => <Letter searchLetter = {letter}/>)}
+    	  <Cocktails firstLetter = {this.state.firstLetter}/>
     	</div>
     );
   }	
