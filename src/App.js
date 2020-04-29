@@ -5,28 +5,17 @@ import Axios from 'axios';
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 const Letter = (props) => (
-	<div>
-  	<button>{props.searchLetter}</button>
+	<div style={{ display: 'inline-block' }}>
+  	<button onClick={props.buttonClick}>{props.searchLetter}</button>
 	</div>
 );
 
 class Cocktails extends React.Component {
-	state = {
-    cocktails: [],
-  };
-
-  componentDidMount() {
-    Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${this.props.firstLetter}`).then(res => {
-      console.log(res);
-      this.setState({ cocktails: res.data.drinks });
-    });
-  }
-  
 	render() {
   	return (
     	<div>
     	  <ul>
-          {this.state.cocktails.map(cocktail => <li>{cocktail.strDrink}</li>)}
+          {this.props.cocktailsList.map(cocktail => <li>{cocktail.strDrink}</li>)}
         </ul>
     	</div>
     );
@@ -35,18 +24,28 @@ class Cocktails extends React.Component {
 
 class App extends React.Component {
   state = {
-    firstLetter: 'a',
+    cocktails: [],
   };
 
+  fetchCocktails(letter){
+    Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`).then(res => {
+      this.setState({ cocktails: res.data.drinks });
+    });
+  }
+
+  componentDidMount() {
+    this.fetchCocktails('a');
+  }
+
   changeFirstLetter = (newLetter) => {
-  	this.setState({ firstLetter: newLetter });
+    this.fetchCocktails(newLetter);
   };
 
   render() {
   	return (
     	<div>
-        {alphabet.map(letter => <Letter searchLetter = {letter}/>)}
-    	  <Cocktails firstLetter = {this.state.firstLetter}/>
+        {alphabet.map(letter => <Letter key={letter} searchLetter={letter} buttonClick={() => this.changeFirstLetter(letter)}/>)}
+    	  <Cocktails cocktailsList={this.state.cocktails}/>
     	</div>
     );
   }	
