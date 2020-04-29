@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    cocktails: [],
+  };
+
+  componentDidMount() {
+    Axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=c').then(res => {
+      console.log(res);
+      this.setState({ cocktails: res.data.drinks });
+    });
+  }
+  
+	render() {
+  	return (
+    	<div>
+    	  <ul>
+          {this.state.cocktails.map(cocktail => <li>{cocktail.strDrink}</li>)}
+        </ul>
+    	</div>
+    );
+  }	
 }
 
 export default App;
