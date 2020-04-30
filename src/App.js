@@ -12,19 +12,19 @@ function Letter(props) {
   );
 } 
 
-function Cocktails(props) {
+function CocktailsList(props) {
   const [cocktails, setCocktails] = useState([]);
 
   useEffect(() => {
     Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${props.letter}`).then(res => {
-      setCocktails(res.data.drinks)
+      setCocktails(res.data.drinks);
     });
-  });
+  }, [props.letter]);
 
   return (
     <div> 
     	<ul>
-        {cocktails.map(cocktail => 
+        {(cocktails || []).map(cocktail => 
           <li key={cocktail.idDrink}>
             {cocktail.strDrink}
             <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} width="50" height="60"></img>
@@ -41,7 +41,7 @@ function App() {
   return (
   	<div>
       {alphabet.map(letter => <Letter key={letter} searchLetter={letter} buttonClick={() => setFirstLetter(letter)}/>)}
-      <Cocktails letter={firstLetter}/>
+      <CocktailsList letter={firstLetter}/>
     </div>
   );
 }
