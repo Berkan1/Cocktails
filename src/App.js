@@ -1,54 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Axios from 'axios';
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-const Letter = (props) => (
-	<div style={{ display: 'inline-block' }}>
-  	<button onClick={props.buttonClick}>{props.searchLetter}</button>
-	</div>
-);
+function Letter(props) {
+  return (
+    <div style={{ display: 'inline-block' }}>
+  	  <button onClick={props.buttonClick}>{props.searchLetter}</button>
+	  </div>
+  );
+} 
 
-class Cocktails extends React.Component {
-	render() {
-  	return (
-    	<div>
-    	  <ul>
-          {this.props.cocktailsList.map(cocktail => <li>{cocktail.strDrink}</li>)}
-        </ul>
-    	</div>
-    );
-  }	
-}
+function Cocktails(props) {
+  const [cocktails, setCocktails] = useState([]);
 
-class App extends React.Component {
-  state = {
-    cocktails: [],
-  };
-
-  fetchCocktails(letter){
-    Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`).then(res => {
-      this.setState({ cocktails: res.data.drinks });
+  useEffect(() => {
+    Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${props.letter}`).then(res => {
+      setCocktails(res.data.drinks)
     });
-  }
+  });
 
-  componentDidMount() {
-    this.fetchCocktails('a');
-  }
+  return (
+    <div> 
+    	<ul>
+        {cocktails.map(cocktail => 
+          <li key={cocktail.idDrink}>
+            {cocktail.strDrink}
+            <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} width="50" height="60"></img>
+          </li>
+        )}
+      </ul>
+    </div>
+  );
+}	
 
-  changeFirstLetter = (newLetter) => {
-    this.fetchCocktails(newLetter);
-  };
+function App() {
+  const [firstLetter, setFirstLetter] = useState('a');
 
-  render() {
-  	return (
-    	<div>
-        {alphabet.map(letter => <Letter key={letter} searchLetter={letter} buttonClick={() => this.changeFirstLetter(letter)}/>)}
-    	  <Cocktails cocktailsList={this.state.cocktails}/>
-    	</div>
-    );
-  }	
+  return (
+  	<div>
+      {alphabet.map(letter => <Letter key={letter} searchLetter={letter} buttonClick={() => setFirstLetter(letter)}/>)}
+      <Cocktails letter={firstLetter}/>
+    </div>
+  );
 }
 
 export default App;
