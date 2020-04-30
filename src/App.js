@@ -6,11 +6,18 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 function Letter(props) {
   return (
-    <div style={{ display: 'inline-block' }}>
-  	  <button onClick={props.buttonClick}>{props.searchLetter}</button>
-	  </div>
+  	<button className="row" onClick={props.buttonClick}>{props.searchLetter}</button>
   );
 } 
+
+function Cocktail(props) {
+  return (
+  	<li>
+      {props.name}
+      <img src={props.image} alt={props.name} width="50" height="60"></img>
+    </li>
+  );
+}
 
 function CocktailsList(props) {
   const [cocktails, setCocktails] = useState([]);
@@ -21,18 +28,24 @@ function CocktailsList(props) {
     });
   }, [props.letter]);
 
-  return (
-    <div> 
-    	<ul>
-        {(cocktails || []).map(cocktail => 
-          <li key={cocktail.idDrink}>
-            {cocktail.strDrink}
-            <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} width="50" height="60"></img>
-          </li>
-        )}
-      </ul>
-    </div>
-  );
+  if (cocktails) {
+    return (
+      <div> 
+        <ul>
+          {cocktails.map(cocktail => 
+            <Cocktail key={cocktail.idDrink} name={cocktail.strDrink} image={cocktail.strDrinkThumb}/>
+          )}
+        </ul>
+      </div>
+    );
+  }
+  else {
+    return (
+      <div> 
+        No results
+      </div>
+    );
+  }
 }	
 
 function App() {
@@ -40,7 +53,9 @@ function App() {
 
   return (
   	<div>
-      {alphabet.map(letter => <Letter key={letter} searchLetter={letter} buttonClick={() => setFirstLetter(letter)}/>)}
+      <div className="center">
+        {alphabet.map(letter => <Letter key={letter} searchLetter={letter} buttonClick={() => setFirstLetter(letter)}/>)}
+      </div>
       <CocktailsList letter={firstLetter}/>
     </div>
   );
