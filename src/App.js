@@ -10,8 +10,10 @@ function App() {
 
   return (
   	<div>
-      <div>
-        {alphabet.map(letter => <Letter key={letter} searchLetter={letter} buttonClick={() => setFirstLetter(letter)}/>)}
+      <div className="center">
+        {alphabet.map(letter => 
+          <Letter key={letter} searchLetter={letter} buttonClick={() => setFirstLetter(letter)}/>
+        )}
       </div>
       <CocktailList letter={firstLetter}/>
     </div>

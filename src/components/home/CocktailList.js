@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import ErrorPage from './ErrorPage';
 
 function CocktailList(props) {
   const [cocktails, setCocktails] = useState([]);
 
   useEffect(() => {
     Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${props.letter}`).then(res => {
-      setCocktails(res.data.drinks.sort((a, b) => a.strDrink.localeCompare(b.strDrink)));
+			if(res.data.drinks) {
+				setCocktails(res.data.drinks.sort((a, b) => a.strDrink.localeCompare(b.strDrink)));
+			}
+			else {
+				setCocktails([]);
+			}
     });
   }, [props.letter]);
   
-  if (cocktails) {
+  if (cocktails.length > 0) {
     return (
       <div> 
         <ul>
@@ -23,9 +29,7 @@ function CocktailList(props) {
   }
   else {
     return (
-      <div> 
-        No results
-      </div>
+      <ErrorPage letter={props.letter}/>
     );
   }
 }	
