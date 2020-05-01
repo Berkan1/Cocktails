@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import Letter from '../src/components/home/Letter';
-import CocktailList from '../src/components/home/CocktailList';
-
-const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Home from '../src/components/home/Home';
+import CocktailDetails from '../src/components/cocktail/CocktailDetails';
 
 function App() {
-  const [firstLetter, setFirstLetter] = useState('a');
-
   return (
-  	<div>
-      <div className="center">
-        {alphabet.map(letter => 
-          <Letter key={letter} searchLetter={letter} buttonClick={() => setFirstLetter(letter)}/>
-        )}
-      </div>
-      <CocktailList letter={firstLetter}/>
-    </div>
+    <BrowserRouter>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/CocktailDetails' component={CocktailDetails} />
+        </Switch>
+    </BrowserRouter>
   );
 }
 

@@ -21,7 +21,7 @@ function CocktailList(props) {
       <div> 
         <ul>
           {cocktails.map(cocktail => 
-            <Cocktail key={cocktail.idDrink} name={cocktail.strDrink} image={cocktail.strDrinkThumb}/>
+            <Cocktail key={cocktail.idDrink} id={cocktail.idDrink} name={cocktail.strDrink} image={cocktail.strDrinkThumb}/>
           )}
         </ul>
       </div>
@@ -38,7 +38,9 @@ function Cocktail(props) {
   return (
   	<li>
       {props.name}
-      <img src={props.image} alt={props.name} width="50" height="60"></img>
+      <a href="/cocktaildetails">
+        <img src={props.image} alt={props.name} width="50" height="60"></img>
+      </a>
     </li>
   );
 }
