@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import ErrorPage from './ErrorPage';
 
 function CocktailList(props) {
   const [cocktails, setCocktails] = useState([]);
@@ -16,30 +15,33 @@ function CocktailList(props) {
     });
   }, [props.letter]);
   
-  if (cocktails.length > 0) {
-    return (
-      <div> 
-        <ul>
-          {cocktails.map(cocktail => 
-            <Cocktail key={cocktail.idDrink} id={cocktail.idDrink} name={cocktail.strDrink} image={cocktail.strDrinkThumb}/>
-          )}
-        </ul>
-      </div>
-    );
-  }
-  else {
-    return (
-      <ErrorPage letter={props.letter}/>
-    );
-  }
+  return (
+    <div> 
+      <ul>
+        {cocktails.map(cocktail => 
+          <Cocktail 
+            key={cocktail.idDrink} 
+            id={cocktail.idDrink} 
+            name={cocktail.strDrink} 
+            image={cocktail.strDrinkThumb}
+          />
+        )}
+      </ul>
+    </div>
+  );
 }	
 
 function Cocktail(props) {
   return (
   	<li>
-      {props.name}
-      <a href="/cocktaildetails">
-        <img src={props.image} alt={props.name} width="50" height="60"></img>
+      <a href={`/${props.id}`}>
+        <p>{props.name}</p>
+        <img 
+          src={props.image}
+          alt={props.name} 
+          width="50" 
+          height="60">
+        </img>
       </a>
     </li>
   );

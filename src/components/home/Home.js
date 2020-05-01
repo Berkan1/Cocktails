@@ -12,7 +12,11 @@ function Home() {
   	<div>
       <div className="center">
         {alphabet.map(letter => 
-          <Letter key={letter} searchLetter={letter} buttonClick={() => setFirstLetter(letter)}/>
+          <Letter 
+            key={letter} 
+            searchLetter={letter} 
+            buttonClick={() => setFirstLetter(letter)}
+          />
         )}
       </div>
       <CocktailList letter={firstLetter}/>
