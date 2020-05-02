@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../../src/App.css';
 import Letter from './Letter';
+import Random from './Random';
 import CocktailList from './CocktailList';
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -11,6 +12,9 @@ function Home() {
   return (
   	<div>
       <div className="center">
+        <h1>Find a cocktail</h1>
+      </div>
+      <div className="center">
         {alphabet.map(letter => 
           <Letter 
             key={letter} 
@@ -19,6 +23,7 @@ function Home() {
           />
         )}
       </div>
+      <Random />
       <CocktailList letter={firstLetter}/>
     </div>
   );
