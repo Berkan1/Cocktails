@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import Axios from 'axios';
 
 function CocktailList(props) {
@@ -46,7 +47,7 @@ function CocktailList(props) {
 function Cocktail(props) {
   return (
   	<li>
-      <a href={`/${props.id}`}>
+      <NavLink to={`/${props.id}`}>
         <p>{props.name}</p>
         <img 
           src={props.image}
@@ -54,7 +55,7 @@ function Cocktail(props) {
           width="50" 
           height="60">
         </img>
-      </a>
+      </NavLink>
     </li>
   );
 }
