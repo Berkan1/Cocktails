@@ -10,9 +10,16 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 function Home() {
   const [firstLetter, setFirstLetter] = useState('a');
   const [searchText, setSearchText] = useState('');
+  const [useLetter, setUseLetter] = useState(true);
 
-  const searchSubmit = (params) => {
-    setSearchText(params);
+  const cocktailsByLetter = (letterValue) => {
+    setFirstLetter(letterValue);
+    setUseLetter(true);
+  }
+
+  const cocktailsBySearch = (searchValue) => {
+    setSearchText(searchValue);
+    setUseLetter(false);
   }
 
   return (
@@ -21,17 +28,21 @@ function Home() {
         <h1>Find a cocktail</h1>
       </div>
       <div className="center">
+        <Random />
+        <Search formSubmit={cocktailsBySearch}/>
         {alphabet.map(letter => 
           <Letter 
             key={letter} 
             searchLetter={letter} 
-            buttonClick={() => setFirstLetter(letter)}
+            buttonClick={() => cocktailsByLetter(letter)}
           />
         )}
       </div>
-      <Random />
-      <Search formSubmit={searchSubmit}/>
-      <CocktailList letter={firstLetter} search={searchText}/>
+      <CocktailList 
+        letter={firstLetter} 
+        search={searchText}
+        searchByLetter={useLetter}
+      />
     </div>
   );
 }

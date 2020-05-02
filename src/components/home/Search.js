@@ -10,15 +10,15 @@ function Search(props) {
 
   return (
     <form onSubmit={handleSearchTermSubmit}>
-    	  <input 
-          type="text" 
-          value={searchValue}
-          onChange={event => setSearchValue(event.target.value)}
-          placeholder="Enter a cocktail name" 
-          required 
-        />
-        <button>Search</button>
-    	</form>
+    	<input 
+        type="text" 
+        value={searchValue}
+        onChange={event => setSearchValue(event.target.value)}
+        placeholder="Enter a cocktail name" 
+        required 
+      />
+      <button>Search</button>
+  	</form>
   );
 } 
 

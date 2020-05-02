@@ -5,15 +5,27 @@ function CocktailList(props) {
   const [cocktails, setCocktails] = useState([]);
 
   useEffect(() => {
-    Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${props.letter}`).then(res => {
-			if(res.data.drinks) {
-				setCocktails(res.data.drinks.sort((a, b) => a.strDrink.localeCompare(b.strDrink)));
-			}
-			else {
-				setCocktails([]);
-			}
-    });
-  }, [props.letter]);
+    if (props.searchByLetter){
+      Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${props.letter}`).then(res => {
+			  if(res.data.drinks) {
+			  	setCocktails(res.data.drinks.sort((a, b) => a.strDrink.localeCompare(b.strDrink)));
+			  }
+			  else {
+			  	setCocktails([]);
+			  }
+      });
+    }
+    else {
+      Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${props.search}`).then(res => {
+			  if (res.data.drinks) {
+			  	setCocktails(res.data.drinks.sort((a, b) => a.strDrink.localeCompare(b.strDrink)));
+			  }
+			  else {
+			  	setCocktails([]);
+			  }
+      });
+    }
+  }, [props.letter, props.search, props.searchByLetter]);
   
   return (
     <div> 
