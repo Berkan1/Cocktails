@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import '../../../src/App.css';
 import Letter from './Letter';
 import Random from './Random';
+import Search from './Search';
 import CocktailList from './CocktailList';
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 function Home() {
   const [firstLetter, setFirstLetter] = useState('a');
+  const [searchText, setSearchText] = useState('');
+
+  const searchSubmit = (params) => {
+    setSearchText(params);
+  }
 
   return (
   	<div>
@@ -24,7 +30,8 @@ function Home() {
         )}
       </div>
       <Random />
-      <CocktailList letter={firstLetter}/>
+      <Search formSubmit={searchSubmit}/>
+      <CocktailList letter={firstLetter} search={searchText}/>
     </div>
   );
 }
