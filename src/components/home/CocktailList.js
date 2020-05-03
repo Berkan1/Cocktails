@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Axios from 'axios';
+import NoneFound from './NoneFound';
 
 function CocktailList(props) {
   const [cocktails, setCocktails] = useState([]);
@@ -28,21 +29,28 @@ function CocktailList(props) {
     }
   }, [props.letter, props.search, props.searchByLetter]);
   
-  return (
-    <div> 
-      <ul>
-        {cocktails.map(cocktail => 
-          <Cocktail 
-            key={cocktail.idDrink} 
-            id={cocktail.idDrink} 
-            name={cocktail.strDrink} 
-            image={cocktail.strDrinkThumb}
-          />
-        )}
-      </ul>
-    </div>
-  );
-}	
+  if (cocktails.length > 1){
+    return (
+      <div> 
+        <ul>
+          {cocktails.map(cocktail => 
+            <Cocktail 
+              key={cocktail.idDrink} 
+              id={cocktail.idDrink} 
+              name={cocktail.strDrink} 
+              image={cocktail.strDrinkThumb}
+            />
+          )}
+        </ul>
+      </div>
+    );
+  }	
+  else {
+    return (
+      <NoneFound />
+    );
+  }
+}
 
 function Cocktail(props) {
   return (
