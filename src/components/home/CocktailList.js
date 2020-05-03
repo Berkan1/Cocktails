@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Image } from 'react-bootstrap';
 import Axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../../src/App.css';
 import NoneFound from './NoneFound';
 
 function CocktailList(props) {
@@ -29,10 +32,9 @@ function CocktailList(props) {
     }
   }, [props.letter, props.search, props.searchByLetter]);
   
-  if (cocktails.length > 1){
+  if (cocktails.length > 0){
     return (
-      <div> 
-        <ul>
+      <div className="center"> 
           {cocktails.map(cocktail => 
             <Cocktail 
               key={cocktail.idDrink} 
@@ -41,7 +43,6 @@ function CocktailList(props) {
               image={cocktail.strDrinkThumb}
             />
           )}
-        </ul>
       </div>
     );
   }	
@@ -54,17 +55,17 @@ function CocktailList(props) {
 
 function Cocktail(props) {
   return (
-  	<li>
       <NavLink to={`/${props.id}`}>
-        <p>{props.name}</p>
-        <img 
-          src={props.image}
-          alt={props.name} 
-          width="50" 
-          height="60">
-        </img>
+        <figure>
+          <Image 
+            src={props.image}
+            alt={props.name} 
+            width="200" 
+            thumbnail
+          />
+          <figcaption>{props.name}</figcaption>
+        </figure>
       </NavLink>
-    </li>
   );
 }
 

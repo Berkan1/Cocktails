@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import '../../../src/App.css';
 import Letter from './Letter';
 import Random from './Random';
 import Search from './Search';
 import CocktailList from './CocktailList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
@@ -23,7 +25,7 @@ function Home() {
   }
 
   return (
-  	<div>
+  	<Container>
       <div className="center">
         <h1>Find a cocktail</h1>
       </div>
@@ -43,7 +45,7 @@ function Home() {
         search={searchText}
         searchByLetter={useLetter}
       />
-    </div>
+    </Container>
   );
 }
 

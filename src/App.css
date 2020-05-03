@@ -38,11 +38,16 @@
 }
 
 .center {
-  display: table;
-  margin-right: auto;
-  margin-left: auto;
+  text-align: center;
+  padding-bottom: 10px;
 }
 
-.row {
-  display: 'inline-block';
+figure {
+  display: inline-block !important;
+  text-align: center;
+  margin: 1rem !important;
+}
+
+figure img {
+  vertical-align: top;
 }

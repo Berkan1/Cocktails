@@ -2,7 +2,7 @@ import React from 'react';
 
 function Letter(props) {
   return (
-  	<button className="row" onClick={props.buttonClick}>{props.searchLetter}</button>
+  	<button onClick={props.buttonClick}>{props.searchLetter}</button>
   );
 } 
 
