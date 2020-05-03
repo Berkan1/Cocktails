@@ -17,7 +17,7 @@ function Search(props) {
         placeholder="Enter a cocktail name" 
         required 
       />
-      <button>Search</button>
+      <button class="btn btn-primary">Search</button>
   	</form>
   );
 } 
