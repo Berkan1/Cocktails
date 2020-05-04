@@ -37,17 +37,25 @@
   }
 }
 
+html {
+  font-size: 100%;
+}
+
 .center {
   text-align: center;
   padding-bottom: 10px;
 }
 
 .background {
-  background-color: #4d0000;
+  background-color: #110016;
 }
 
 h1, p, figcaption, li {
-  color: white;
+  color: #E6245E;
+}
+
+h1 {
+  padding-top: 2rem;
 }
 
 figure {
@@ -62,8 +70,46 @@ figure img {
 
 .letter-links {
   font-weight: 400;
-  color: white;
+  color: #E6245E;
   text-decoration: none;
   background-color: transparent;
   border: 1px solid transparent;
+}
+
+.letter-links:focus {
+  outline: none;
+  border-bottom: 1px solid white;
+}
+
+.btn-primary {
+  background-color: #E6245E !important;
+  border: none !important;
+}
+
+.btn-primary:hover {
+  background-color: #950740 !important;
+}
+
+.btn-primary:focus {
+  box-shadow: none !important;
+}
+
+.btn-primary:active:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.btn-search {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  vertical-align: top !important;
+  height: 34px !important;
+}
+
+input {
+  height: 34px;
+  border: none;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  text-indent: 0.5rem;
 }
