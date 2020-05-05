@@ -68,17 +68,27 @@ figure img {
   vertical-align: top;
 }
 
+figure img:hover {
+  box-shadow: 0px 0px 15px #E6245E;
+}
+
 .letter-links {
   font-weight: 400;
   color: #E6245E;
   text-decoration: none;
   background-color: transparent;
   border: 1px solid transparent;
+  font-weight: bold;
 }
 
 .letter-links:focus {
   outline: none;
-  border-bottom: 1px solid white;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.letter-links:hover {
+  color: #92073f;
 }
 
 .btn-primary {
@@ -87,7 +97,7 @@ figure img {
 }
 
 .btn-primary:hover {
-  background-color: #950740 !important;
+  background-color: #92073f !important;
 }
 
 .btn-primary:focus {
@@ -112,4 +122,14 @@ input {
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
   text-indent: 0.5rem;
+}
+
+.zoom {
+  transition: transform .2s;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1); 
 }
