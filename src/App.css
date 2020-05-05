@@ -83,8 +83,6 @@ figure img:hover {
 
 .letter-links:focus {
   outline: none;
-  background-color: white;
-  border-radius: 0.5rem;
 }
 
 .letter-links:hover {
@@ -132,4 +130,9 @@ input {
   -ms-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1); 
+}
+
+.letter-selected {
+  background-color: white;
+  border-radius: 0.5rem;
 }

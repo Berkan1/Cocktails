@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 function Home() {
-  const [firstLetter, setFirstLetter] = useState('a');
+  const [firstLetter, setFirstLetter] = useState('A');
   const [searchText, setSearchText] = useState('');
   const [useLetter, setUseLetter] = useState(true);
 
@@ -36,6 +36,8 @@ function Home() {
           <Letter 
             key={letter} 
             searchLetter={letter} 
+            searchedLetter={firstLetter}
+            usingLetter={useLetter}
             buttonClick={() => cocktailsByLetter(letter)}
           />
         )}
