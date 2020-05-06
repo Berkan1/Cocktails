@@ -11,7 +11,7 @@ function getRandomCocktail() {
 
 function Random() {
   return (
-  	<button onClick={getRandomCocktail} class="btn btn-primary">Surprise me!</button>
+  	<button onClick={getRandomCocktail} className="btn btn-primary">Surprise me!</button>
   );
 } 
 

@@ -55,17 +55,17 @@ function CocktailList(props) {
 
 function Cocktail(props) {
   return (
-      <NavLink to={`/${props.id}`}>
-        <figure class="zoom">
-          <Image 
-            src={props.image}
-            alt={props.name} 
-            width="200" 
-            thumbnail
-          />
-          <figcaption>{props.name}</figcaption>
-        </figure>
-      </NavLink>
+    <NavLink to={`/${props.id}`}>
+      <figure className="zoom">
+        <Image 
+          src={props.image}
+          alt={props.name} 
+          width="200" 
+          thumbnail
+        />
+        <figcaption>{props.name}</figcaption>
+      </figure>
+    </NavLink>
   );
 }
 

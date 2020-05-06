@@ -50,7 +50,7 @@ html {
   background-color: #110016;
 }
 
-h1, p, figcaption, li {
+h1, p, figcaption, li, label {
   color: #E6245E;
 }
 
@@ -98,11 +98,7 @@ figure img:hover {
   background-color: #92073f !important;
 }
 
-.btn-primary:focus {
-  box-shadow: none !important;
-}
-
-.btn-primary:active:focus {
+.btn-primary:focus, .btn-primary:active:focus, select:focus, select:active:focus {
   box-shadow: none !important;
   outline: none !important;
 }
@@ -135,4 +131,14 @@ input {
 .letter-selected {
   background-color: white;
   border-radius: 0.5rem;
+}
+
+select {
+  cursor: pointer;
+  border-radius: .25rem;
+  height: 34px;
+}
+
+label {
+  padding-right: 0.5rem;
 }
