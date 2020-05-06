@@ -2,6 +2,14 @@ html {
   font-size: 100%;
 }
 
+html, body {
+  height: 100%;
+}
+
+.main-body {
+  min-height: 95vh;
+}
+
 .center {
   text-align: center;
   padding-bottom: 10px;
@@ -16,6 +24,13 @@ footer {
   text-align: center;
   color: white;
   padding: 5px;
+  margin-top: auto;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1, p, figcaption, li, label {
@@ -51,10 +66,6 @@ figure img:hover {
 
 .letter-links:focus {
   outline: none;
-}
-
-.letter-links:hover {
-  color: #92073f;
 }
 
 .btn-primary {
@@ -96,7 +107,7 @@ input {
   transform: scale(1.1); 
 }
 
-.letter-selected {
+.letter-selected, .letter-links:hover {
   background-color: white;
   border-radius: 0.5rem;
 }

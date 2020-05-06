@@ -25,7 +25,7 @@ function Home() {
   }
 
   return (
-    <div>
+    <div className="main-body">
       <Container>
         <div className="center">
           <h1>Discover new cocktails!</h1>

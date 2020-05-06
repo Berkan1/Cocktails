@@ -7,13 +7,15 @@ import CocktailDetails from '../src/components/cocktail/CocktailDetails';
 function App() {
   return (
     <div>
-      <BrowserRouter>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/:id' component={CocktailDetails} />
-          </Switch>
-      </BrowserRouter>
-      <footer>
+      <div className="main-body">
+        <BrowserRouter>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/:id' component={CocktailDetails} />
+            </Switch>
+        </BrowserRouter>
+      </div>
+      <footer className="footer">
         This site was created for educational purposes using the API provided by <a href="https://www.thecocktaildb.com/api.php">TheCocktailDB</a>. Please support their site!
       </footer>
     </div>

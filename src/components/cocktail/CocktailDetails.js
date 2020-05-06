@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import Axios from 'axios';
 
@@ -30,7 +31,7 @@ function CocktailDetails(props) {
 	}, [props.match.params.id]);
 		
   return (
-  	<div>
+  	<Container>
 			<p>
 				<NavLink to='/'>Back to cocktails</NavLink>
 			</p>
@@ -46,7 +47,7 @@ function CocktailDetails(props) {
         )}
       </ul>
 			<p>{cocktailInfo.instructions}</p>
-  	</div>
+  	</Container>
   );
 } 
 
