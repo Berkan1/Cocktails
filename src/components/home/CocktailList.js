@@ -35,14 +35,15 @@ function CocktailList(props) {
   if (cocktails.length > 0){
     return (
       <div className="center"> 
-          {cocktails.map(cocktail => 
-            <Cocktail 
-              key={cocktail.idDrink} 
-              id={cocktail.idDrink} 
-              name={cocktail.strDrink} 
-              image={cocktail.strDrinkThumb}
-            />
-          )}
+        
+        {cocktails.map(cocktail => 
+          <Cocktail 
+            key={cocktail.idDrink} 
+            id={cocktail.idDrink} 
+            name={cocktail.strDrink} 
+            image={cocktail.strDrinkThumb}
+          />
+        )}
       </div>
     );
   }	

@@ -9,7 +9,7 @@ function Search(props) {
   }
 
   return (
-    <div className="center">
+    <div>
       <form onSubmit={handleSearchTermSubmit}>
           <input 
             type="text" 

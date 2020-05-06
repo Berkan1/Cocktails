@@ -4,7 +4,6 @@ import '../../../src/App.css';
 import Letter from './Letter';
 import Random from './Random';
 import Search from './Search';
-import Filter from './Filter';
 import CocktailList from './CocktailList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -31,9 +30,10 @@ function Home() {
         <h1>Find a cocktail</h1>
       </div>
       <div className="center">
-        <Random />
+        <div>
         <Search formSubmit={cocktailsBySearch}/>
-        <Filter />
+        <Random />
+        </div>
         {alphabet.map(letter => 
           <Letter 
             key={letter} 

@@ -73,12 +73,12 @@ figure img:hover {
 }
 
 .letter-links {
-  font-weight: 400;
   color: #E6245E;
   text-decoration: none;
   background-color: transparent;
   border: 1px solid transparent;
   font-weight: bold;
+  font-size: larger;
 }
 
 .letter-links:focus {
@@ -92,6 +92,7 @@ figure img:hover {
 .btn-primary {
   background-color: #E6245E !important;
   border: none !important;
+  margin-bottom: 1rem;
 }
 
 .btn-primary:hover {
@@ -107,11 +108,10 @@ figure img:hover {
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
   vertical-align: top !important;
-  height: 34px !important;
 }
 
 input {
-  height: 34px;
+  height: 36px;
   border: none;
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
@@ -141,4 +141,8 @@ select {
 
 label {
   padding-right: 0.5rem;
+}
+
+.together {
+  display: inline-block;
 }
