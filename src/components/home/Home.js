@@ -25,31 +25,35 @@ function Home() {
   }
 
   return (
-  	<Container>
-      <div className="center">
-        <h1>Find a cocktail</h1>
-      </div>
-      <div className="center">
-        <div>
-        <Search formSubmit={cocktailsBySearch}/>
-        <Random />
+    <div>
+      <Container>
+        <div className="center">
+          <h1>Discover new cocktails!</h1>
         </div>
-        {alphabet.map(letter => 
-          <Letter 
-            key={letter} 
-            searchLetter={letter} 
-            searchedLetter={firstLetter}
-            usingLetter={useLetter}
-            buttonClick={() => cocktailsByLetter(letter)}
-          />
-        )}
-      </div>
-      <CocktailList 
-        letter={firstLetter} 
-        search={searchText}
-        searchByLetter={useLetter}
-      />
-    </Container>
+        <div className="center">
+          <div>
+          <Search formSubmit={cocktailsBySearch}/>
+          <Random />
+          </div>
+          {alphabet.map(letter => 
+            <Letter 
+              key={letter} 
+              searchLetter={letter} 
+              searchedLetter={firstLetter}
+              usingLetter={useLetter}
+              buttonClick={() => cocktailsByLetter(letter)}
+            />
+          )}
+        </div>
+        <CocktailList 
+          letter={firstLetter} 
+          search={searchText}
+          searchByLetter={useLetter}
+        />
+        
+      </Container>
+      
+    </div>
   );
 }
 
