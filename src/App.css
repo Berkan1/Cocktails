@@ -126,3 +126,11 @@ a {
   color: white !important;
   text-decoration: underline !important;
 }
+
+.aws-btn {
+  --button-primary-color: #E6245E !important; 
+  --button-raise-level: 6px !important; 
+  --button-primary-color-hover: #b81445 !important; 
+  --button-primary-color-dark: #8a0f34 !important;
+  margin-bottom: 1rem !important;
+}
