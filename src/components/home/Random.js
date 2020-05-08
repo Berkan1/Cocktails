@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { AwesomeButton } from 'react-awesome-button';
 import "react-awesome-button/dist/styles.css";
-import '../../../src/App.css';
+import '../../../src/App.scss';
 
 class Random extends React.Component {
 	getRandomCocktail() {

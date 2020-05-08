@@ -1,3 +1,6 @@
+$primary: #E6245E;
+$secondary: #92073f;
+
 html {
   font-size: 100%;
 }
@@ -20,7 +23,7 @@ html, body {
 }
 
 footer {
-  background-color: #E6245E;
+  background-color: $primary;
   text-align: center;
   color: white;
   padding: 5px;
@@ -33,8 +36,12 @@ footer {
   flex-direction: column;
 }
 
-h1, p, figcaption, li, label {
-  color: #E6245E;
+h1, label {
+  color: $primary;
+}
+
+p, li, figcaption {
+  color: white;
 }
 
 h1 {
@@ -52,11 +59,11 @@ figure img {
 }
 
 figure img:hover {
-  box-shadow: 0px 0px 15px #E6245E;
+  box-shadow: 0px 0px 15px $primary;
 }
 
 .letter-links {
-  color: #E6245E;
+  color: $primary;
   text-decoration: none;
   background-color: transparent;
   border: 1px solid transparent;
@@ -69,13 +76,13 @@ figure img:hover {
 }
 
 .btn-primary {
-  background-color: #E6245E !important;
+  background-color: $primary !important;
   border: none !important;
   margin-bottom: 1rem;
 }
 
 .btn-primary:hover {
-  background-color: #92073f !important;
+  background-color: $secondary !important;
 }
 
 .btn-primary:focus, .btn-primary:active:focus, select:focus, select:active:focus {
@@ -122,15 +129,28 @@ label {
   padding-right: 0.5rem;
 }
 
-a {
+footer a {
   color: white !important;
   text-decoration: underline !important;
 }
 
+a {
+  color: $primary !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.back-icon {
+  margin-right: 0.5rem;
+}
+
 .aws-btn {
-  --button-primary-color: #E6245E !important; 
+  --button-primary-color: #{$primary} !important; 
   --button-raise-level: 6px !important; 
   --button-primary-color-hover: #b81445 !important; 
   --button-primary-color-dark: #8a0f34 !important;
+  --button-primary-color-active: none !important;
   margin-bottom: 1rem !important;
 }

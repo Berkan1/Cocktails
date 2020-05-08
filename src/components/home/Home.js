@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
-import '../../../src/App.css';
+import '../../../src/App.scss';
 import Letter from './Letter';
 import Random from './Random';
 import Search from './Search';

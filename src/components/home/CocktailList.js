@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Image } from 'react-bootstrap';
 import Axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../../src/App.css';
+import '../../../src/App.scss';
 import NoneFound from './NoneFound';
 
 function CocktailList(props) {

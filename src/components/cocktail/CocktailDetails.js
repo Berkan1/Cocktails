@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { AwesomeButton } from 'react-awesome-button';
 import Axios from 'axios';
 
 function CocktailDetails(props) {
@@ -32,10 +33,15 @@ function CocktailDetails(props) {
 		
   return (
   	<Container>
+			<br/>
 			<p>
-				<NavLink to='/'>Back to cocktails</NavLink>
+				<NavLink to='/'>
+					<AwesomeButton type="primary">
+						<i className="glyphicon glyphicon-arrow-left back-icon"/>Back to cocktails
+					</AwesomeButton>
+				</NavLink>
 			</p>
-			<img src={cocktailInfo.image} alt={cocktailInfo.strDrink} width="200" height="200"></img>
+			<img src={cocktailInfo.image} alt={cocktailInfo.strDrink} width="400"></img>
 			<p>
 				<strong>{cocktailInfo.name}</strong>
 			</p>
