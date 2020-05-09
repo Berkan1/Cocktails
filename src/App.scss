@@ -13,6 +13,10 @@ html, body {
   min-height: 95vh;
 }
 
+.badge {
+  margin-right: 0.5rem;
+}
+
 .center {
   text-align: center;
   padding-bottom: 10px;
@@ -40,7 +44,7 @@ h1, label {
   color: $primary;
 }
 
-p, li, figcaption {
+p, li, figcaption, h2, h4 {
   color: white;
 }
 
@@ -48,10 +52,24 @@ h1 {
   padding-top: 2rem;
 }
 
+ul {
+  padding-inline-start: 1rem;
+}
+
+hr {
+  border-top: 1px solid white !important;
+}
+
 figure {
   display: inline-block !important;
   text-align: center;
   margin: 1rem !important;
+}
+
+.cocktail-image {
+  border-radius: 5%;
+  border: 0.3rem solid white;
+  margin-bottom: 1rem;
 }
 
 figure img {
@@ -144,6 +162,10 @@ a:hover {
 
 .back-icon {
   margin-right: 0.5rem;
+}
+
+.icon-space {
+  margin-right: 0.2rem;
 }
 
 .aws-btn {
