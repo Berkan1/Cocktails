@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <div className="main-body">
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/details/:id' component={CocktailDetails} />
