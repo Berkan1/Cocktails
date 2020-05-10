@@ -56,7 +56,7 @@ function CocktailList(props) {
 
 function Cocktail(props) {
   return (
-    <NavLink to={`/${props.id}`}>
+    <NavLink to={`/details/${props.id}`}>
       <figure className="zoom">
         <Image 
           src={props.image}
