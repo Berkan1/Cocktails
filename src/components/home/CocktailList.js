@@ -38,6 +38,7 @@ function CocktailList(props) {
         
         {cocktails.map(cocktail => 
           <Cocktail 
+            letter={props.letter}
             key={cocktail.idDrink} 
             id={cocktail.idDrink} 
             name={cocktail.strDrink} 
@@ -56,7 +57,10 @@ function CocktailList(props) {
 
 function Cocktail(props) {
   return (
-    <NavLink to={`/details/${props.id}`}>
+    <NavLink to={{
+      pathname: `/${props.id}`,
+      usedLetter: props.letter
+    }}>
       <figure className="zoom">
         <Image 
           src={props.image}

@@ -9,8 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-function Home() {
-  const [firstLetter, setFirstLetter] = useState('A');
+function Home(props) {
+  const [firstLetter, setFirstLetter] = useState(props.location.previousLetter || 'A');
   const [searchText, setSearchText] = useState('');
   const [useLetter, setUseLetter] = useState(true);
 
