@@ -10,9 +10,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 function Home(props) {
+  let previousSearchType = props.location.previousSearchType;
+  if (previousSearchType === undefined) {
+    previousSearchType = true;
+  }
   const [firstLetter, setFirstLetter] = useState(props.location.previousLetter || 'A');
-  const [searchText, setSearchText] = useState('');
-  const [useLetter, setUseLetter] = useState(true);
+  const [searchText, setSearchText] = useState(props.location.previousSearch || '');
+  const [useLetter, setUseLetter] = useState(previousSearchType);
 
   const cocktailsByLetter = (letterValue) => {
     setFirstLetter(letterValue);
@@ -50,9 +54,7 @@ function Home(props) {
           search={searchText}
           searchByLetter={useLetter}
         />
-        
       </Container>
-      
     </div>
   );
 }

@@ -57,7 +57,9 @@ function CocktailDetails(props) {
 				  <br/>
 					<NavLink to={{
 						pathname: '/',
-						previousLetter: props.location.usedLetter
+						previousLetter: props.location.usedLetter,
+						previousSearch: props.location.usedSearch,
+						previousSearchType: props.location.wasLetterUsed
 					}}>
 						<AwesomeButton type="primary">
 							<i className="glyphicon glyphicon-arrow-left back-icon"/>Back to cocktails

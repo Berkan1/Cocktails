@@ -39,6 +39,8 @@ function CocktailList(props) {
         {cocktails.map(cocktail => 
           <Cocktail 
             letter={props.letter}
+            search = {props.search}
+            usingLetter={props.searchByLetter}
             key={cocktail.idDrink} 
             id={cocktail.idDrink} 
             name={cocktail.strDrink} 
@@ -59,7 +61,9 @@ function Cocktail(props) {
   return (
     <NavLink to={{
       pathname: `/${props.id}`,
-      usedLetter: props.letter
+      usedLetter: props.letter,
+      usedSearch: props.search,
+      wasLetterUsed: props.usingLetter
     }}>
       <figure className="zoom">
         <Image 
