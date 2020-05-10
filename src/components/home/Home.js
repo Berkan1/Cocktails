@@ -36,7 +36,7 @@ function Home(props) {
         </div>
         <div className="center">
           <div>
-          <Search formSubmit={cocktailsBySearch}/>
+          <Search defaultValue={!useLetter ? props.location.previousSearch : ''} formSubmit={cocktailsBySearch}/>
           <Random />
           </div>
           {alphabet.map(letter => 

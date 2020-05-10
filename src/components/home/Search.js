@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function Search(props) {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState(props.defaultValue || '');
 
   const handleSearchTermSubmit = (event) => {
     event.preventDefault();
