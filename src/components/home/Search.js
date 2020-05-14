@@ -19,7 +19,7 @@ function Search(props) {
             placeholder="Enter a cocktail name"
             required 
           />
-          <label for="searchCocktail">Enter a cocktail name to search for</label>
+          <label for="searchCocktail" aria-hidden="false">Enter a cocktail name to search for</label>
           <button className="btn btn-primary btn-search" aria-label="Search">
             <i className="glyphicon glyphicon-search"></i>
           </button>
