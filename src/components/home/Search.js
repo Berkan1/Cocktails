@@ -12,13 +12,15 @@ function Search(props) {
     <div>
       <form onSubmit={handleSearchTermSubmit}>
           <input 
+            id="searchCocktail"
             type="text" 
             value={searchValue}
             onChange={event => setSearchValue(event.target.value)}
             placeholder="Enter a cocktail name"
             required 
           />
-          <button className="btn btn-primary btn-search">
+          <label for="searchCocktail">Enter a cocktail name to search for</label>
+          <button className="btn btn-primary btn-search" aria-label="Search">
             <i className="glyphicon glyphicon-search"></i>
           </button>
       </form>
