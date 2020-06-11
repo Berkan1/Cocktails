@@ -1,4 +1,5 @@
-The purpose of this project was to get the hang of using the React library and use this to create a single page application
+This web app is available at https://berkan1.github.io/cocktails.
+The purpose of this project was to get the hang of using the React library and use this to create a single page application.
 
 ## Libraries used
 	
